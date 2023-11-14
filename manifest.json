@@ -1,0 +1,29 @@
+{
+    "name":"Website blocker",
+    "description":"Block website for one day once we visit",
+    "version":"0.0.1",
+
+    "manifest_version": 3,
+
+    "action":{
+        "default_popup":"./popup.html"
+    },
+
+    "content_scripts":[
+        {
+            "matches":["<all_urls>"],
+            "css":["contentScript.css"],
+            "js":["contentScript.js"]
+        }
+    ],
+
+    "background": {
+        "service_worker": "background.js"
+    },
+
+    "permissions":["tabs","activeTab","storage"],
+
+    "host_permissions": [
+        "<all_urls>"
+    ]
+}
